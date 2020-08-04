@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: parmarti <parmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/08/03 15:35:46 by paris             #+#    #+#              #
-#    Updated: 2020/08/03 15:36:40 by paris            ###   ########.fr        #
+#    Created: 2020/08/03 15:35:46 by parmarti          #+#    #+#              #
+#    Updated: 2020/08/04 13:41:36 by parmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,8 @@ server {
 	listen [::]:443 ssl ;
 	
 	ssl on;
-	ssl_certificate /etc/ssl/certs/matascon.crt;
-	ssl_certificate_key /etc/ssl/private/matascon.key;
+	ssl_certificate /etc/ssl/certs/parmarti.crt;
+	ssl_certificate_key /etc/ssl/private/parmarti.key;
 
 	root /var/www/html;
 
