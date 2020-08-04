@@ -33,6 +33,6 @@ RUN	rm -rf /etc/nginx/sites-available/default && \
 	-newkey rsa:2048 -subj "/C=SP/ST=Spain/L=Madrid/O=42/CN=127.0.0.1" \
 	-keyout /etc/ssl/private/parmarti.key \
 	-out /etc/ssl/certs/parmarti.crt && \
-	openssl dhparam -out /etc/nginx/dhparam.pem 1000
+	openssl dhparam -out /etc/nginx/dhparam.pem 1000 && \
 	bash /tmp/services.sh
 
