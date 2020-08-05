@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    config_nginx                                       :+:      :+:    :+:    #
+#    config-nginx                                       :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: parmarti <parmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/03 15:35:46 by parmarti          #+#    #+#              #
-#    Updated: 2020/08/04 13:41:36 by parmarti         ###   ########.fr        #
+#    Updated: 2020/08/05 11:28:25 by parmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ server {
 	server_name localhost www.localhost;
 
 	location / {
+		autoindex on;
 		try_files $uri $uri/ =404;
 	}
 

@@ -7,7 +7,8 @@ RUN	apt-get update && \
 	apt-get install -y nginx \
 	php7.3-fpm php7.3-mysql php7.3-mbstring \
 	mariadb-server \
-	openssl && \
+	openssl \
+	vim && \
 	rm -rf /var/www/html/index.*
 
 #Install wordpress and phpMyAdmin. Copy config files.	
