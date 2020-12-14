@@ -107,7 +107,9 @@ cd ft_server
 # Create image
 docker build . -t ft_server
 # Launch container
-docker run -it -p 80:80 -p 443:443 --name ft_server ft_server bash
+docker run -it -p 80:80 -p 443:443 -e AUTOINDEX=on --name ft_server ft_server bash
+# Launch WebBrowser
+https://localhost/
 ```
 
 [Back To The Top](#ft_server)
