@@ -20,14 +20,14 @@ RUN	apt-get update && \
 COPY	srcs/config.inc.php	/var/www/html/phpmyadmin/
 COPY	srcs/wp-config.php	/var/www/html/wordpress/
 COPY	srcs/index.html		/var/www/html/
-COPY	srcs/config-nginx	/etc/nginx/sites-available/
+COPY	srcs/nginx.cnf		/etc/nginx/sites-available/
 COPY	srcs/init.sql		/tmp/
 COPY	srcs/wordpress.sql	/tmp/
 
 #Remove default files and create link. Change permissions. Start mysql and create database wordpress. Create key and certificate SSL. Run services.
 RUN	rm -rf /etc/nginx/sites-available/default && \
 	rm -rf /etc/nginx/sites-enabled/default && \
-	ln -sf /etc/nginx/sites-available/config-nginx /etc/nginx/sites-enabled/ && \
+	ln -sf /etc/nginx/sites-available/nginx.cnf /etc/nginx/sites-enabled/ && \
 	chown -R www-data:www-data /var/www/* && \
 	chmod -R 755 /var/www/* && \
 	chmod 700 /etc/ssl/private && \
@@ -41,5 +41,5 @@ RUN	rm -rf /etc/nginx/sites-available/default && \
 	mysql wordpress -u root --password= < tmp/wordpress.sql
 
 #Set autoindex and restart.
-ENTRYPOINT	if [ ${AUTOINDEX} = "on" ] ; then sed -i '35 s/autoindex off;/autoindex on;/g' /etc/nginx/sites-available/config-nginx; fi && \
+ENTRYPOINT	if [ ${AUTOINDEX} = "on" ] ; then sed -i '23 s/autoindex off;/autoindex on;/g' /etc/nginx/sites-available/nginx.cnf; fi && \
 		service nginx start && service php7.3-fpm start && service mysql start && bash
