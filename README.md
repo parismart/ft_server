@@ -45,6 +45,9 @@ It will allow you to install a complete web server, thanks to a deployment techn
 
 - ```Docker```: Is a open-source project that automates the deployment of applications within software containers.
 
+- ```OpenSSL```: Is a robust, commercial-grade, and full-featured toolkit for the (TLS) and (SSL) protocols. Allows create digital certificates that can work on a server.
+
+- ```Diffie-Hellman``` cryptographic protocol: Is a protocol for establishing keys between parties that have not had previous contact, using an insecure channel and anonymously.
 
 [Back To The Top](#ft_server)
 
