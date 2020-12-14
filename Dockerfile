@@ -20,6 +20,8 @@ COPY	srcs/config.inc.php	/var/www/html/phpMyAdmin/
 COPY	srcs/wp-config.php	/var/www/html/wordpress/
 COPY	srcs/index.html		/var/www/html/
 COPY	srcs/config-nginx	/etc/nginx/sites-available/
+COPY	srcs/init.sql		/tmp/
+COPY	srcs/wordpress.sql	/tmp/
 
 #Remove default files and create link. Change permissions. Start mysql and create database wordpress. Create key and certificate SSL. Run services.
 RUN	rm -rf /etc/nginx/sites-available/default && \
@@ -34,10 +36,8 @@ RUN	rm -rf /etc/nginx/sites-available/default && \
 	-out /etc/ssl/certs/parmarti.crt && \
 	openssl dhparam -out /etc/nginx/dhparam.pem 1000 && \
 	service mysql start && \
-	echo "CREATE DATABASE wordpress;" | mysql -u root && \
-	echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'root'@'localhost';" | mysql -u root && \
-	echo "FLUSH PRIVILEGES;" | mysql -u root && \
-	echo "update mysql.user set plugin = 'mysql_native_password' where user='root';" | mysql -u root
+	mysql -u root --password= < tmp/init.sql && \
+	mysql wordpress -u root --password= < tmp/wordpress.sql
 
 #Set autoindex and restart.
 ENTRYPOINT	if [ ${AUTOINDEX} = "on" ] ; then sed -i '35 s/autoindex off;/autoindex on;/g' /etc/nginx/sites-available/config-nginx; fi && \
