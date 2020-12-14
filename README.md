@@ -121,6 +121,13 @@ https://localhost/
 
 ## References
 
+- Learn Docker - [NetworkChuck](https://www.youtube.com/watch?v=eGz9DS-aIeY&ab_channel=NetworkChuck)
+- Curso Docker - [Fazt Code](https://www.youtube.com/watch?v=NVvZNmfqg6M&t=1987s&ab_channel=FaztCode)
+- Dockerfile reference - [Docker Documentation](https://docs.docker.com/engine/reference/builder/)
+- Installing MariaDB - [MariaDB](https://mariadb.com/kb/en/getting-installing-and-upgrading-mariadb/)
+- PHP Manual - [Command line usage](https://www.php.net/manual/en/features.commandline.options.php)
+
+
 [Back To The Top](#ft_server)
 
 ---
