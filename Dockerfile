@@ -1,22 +1,23 @@
 FROM	debian:buster
 
-MAINTAINER	Paris Martinez Ruiz <parmarti@student.42madrid.com>
-
 ENV	AUTOINDEX=off
 
-#Install nginx, php, mariadb and openssl. Remove index.
+#Install nginx, php, mariadb, openssl, wordpress and phpMyAdmin. Remove index.
 RUN	apt-get update && \
 	apt-get install -y nginx \
-	php7.3-fpm php7.3-mysql php7.3-mbstring \
+	wget php7.3-fpm php7.3-mysql php7.3-mbstring \
 	mariadb-server \
-	openssl \
-	vim && \
-	rm -rf /var/www/html/index.*
+	openssl && \
+	wget https://files.phpmyadmin.net/phpMyAdmin/4.9.2/phpMyAdmin-4.9.2-all-languages.tar.gz && \
+	tar -xzvf phpMyAdmin-4.9.2-all-languages.tar.gz && rm -rf phpMyAdmin-4.9.2-all-languages.tar.gz && \
+	mv phpMyAdmin-4.9.2-all-languages /var/www/html/phpmyadmin && \
+	wget http://wordpress.org/latest.tar.gz && \
+	tar -xzvf latest.tar.gz && rm -rf latest.tar.gz && \
+	mv wordpress /var/www/html/ && \
+	rm -rf /var/www/html/index.* 
 
-#Install wordpress and phpMyAdmin. Copy config files.	
-COPY	srcs/wordpress		/var/www/html/wordpress
-COPY	srcs/phpMyAdmin		/var/www/html/phpMyAdmin
-COPY	srcs/config.inc.php	/var/www/html/phpMyAdmin/
+#Copy config files and import wordpress database.	
+COPY	srcs/config.inc.php	/var/www/html/phpmyadmin/
 COPY	srcs/wp-config.php	/var/www/html/wordpress/
 COPY	srcs/index.html		/var/www/html/
 COPY	srcs/config-nginx	/etc/nginx/sites-available/
