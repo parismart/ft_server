@@ -1,5 +1,5 @@
 # ft_server
-
+[![42Project Score](https://badge42.herokuapp.com/api/project/parmarti/ft_server)](https://github.com/JaeSeoKim/badge42)
 ![logo](https://upload.wikimedia.org/wikipedia/commons/7/79/Docker_%28container_engine%29_logo.png)
 
 > The project consists of install a complete web server. School project done at 42Madrid.
