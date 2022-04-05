@@ -1,5 +1,5 @@
 # ft_server
-[![42Project Score](https://badge42.herokuapp.com/api/project/parmarti/ft_server)](https://github.com/JaeSeoKim/badge42)
+[![parmarti's 42 ft_server Score](https://badge42.vercel.app/api/v2/cl1lvrz0z002109lhozldfih2/project/1941974)](https://github.com/JaeSeoKim/badge42)
 
 ![logo](https://upload.wikimedia.org/wikipedia/commons/7/79/Docker_%28container_engine%29_logo.png)
 
